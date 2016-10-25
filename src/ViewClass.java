@@ -72,7 +72,11 @@ public class ViewClass {
 		btnPlay.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\playp.jpg"));
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("I clicked the play stop");				
+				
+				playerMethods.setMp3Player(mp3Player);
+				playerMethods.stop();
+				playerMethods.play();
+				System.out.println("I clicked the play button");				
 			}
 			
 		});
@@ -84,7 +88,9 @@ public class ViewClass {
 		JButton btnPause = new JButton("");
 		btnPause.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				
+				playerMethods.setMp3Player(mp3Player);
+				playerMethods.pause();
 				System.out.println("I clicked the button pause");
 
 			}
@@ -99,9 +105,12 @@ public class ViewClass {
 		
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				playerMethods.setMp3Player(mp3Player);
+				playerMethods.stop();
 				
 				System.out.println("I clicked the button stop");
-				mp3Player.stop();
+			//	mp3Player.stop();
 			}
 			
 		});
@@ -125,7 +134,10 @@ public class ViewClass {
 					File file = fileChooser.getSelectedFile(); 
                     
 					mp3Player = new MP3Player(file);
-					mp3Player.play();
+					playerMethods.setMp3Player(mp3Player);
+					playerMethods.stop();
+					playerMethods.open();
+					//mp3Player.play();
 
 					System.out.println(file.getAbsolutePath());
 

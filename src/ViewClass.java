@@ -20,7 +20,29 @@ public class ViewClass {
 	private JFrame frmMyMusicPlayer;
 
 	private MP3Player mp3Player = new MP3Player();
+	private PlayerMethods playerMethods = new PlayerMethods();
 	JLabel lblShowMelody = new JLabel("choose file");
+	
+	/**
+	
+	btn.actionlister{
+		btn.actionperformed(){
+			open jfilechooser(){
+				build mp3PlayerFromJFileChooser;
+				
+				
+				playermethods.setMp3Player(mp3PlayerFromJFileChooser)
+				playermethods.open();
+				
+				
+			}
+		
+		
+		}
+		
+	}
+	
+	*/
 	
 	/**
 	 * Create the application.
@@ -50,9 +72,7 @@ public class ViewClass {
 		btnPlay.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\playp.jpg"));
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("I clicked the play stop");
-				mp3Player.play();
-				
+				System.out.println("I clicked the play stop");				
 			}
 			
 		});
@@ -66,7 +86,6 @@ public class ViewClass {
 			public void actionPerformed(ActionEvent e) {
 
 				System.out.println("I clicked the button pause");
-				mp3Player.pause();
 
 			}
 			
@@ -97,21 +116,22 @@ public class ViewClass {
 				
 			System.out.println("I clicked the button open!");
 
-				JFileChooser fileChooser = new JFileChooser();
+	           JFileChooser fileChooser = new JFileChooser();
 
 				int returnVal = fileChooser.showOpenDialog(btnOpen);
 
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
 
-					File file = fileChooser.getSelectedFile();
-
+					File file = fileChooser.getSelectedFile(); 
+                    
 					mp3Player = new MP3Player(file);
+					mp3Player.play();
 
 					System.out.println(file.getAbsolutePath());
 
-					lblShowMelody.setText(file.getName().toString());			
+					lblShowMelody.setText(file.getName().toString());		
 				
-				}
+			}
 			}
 		});
 		

@@ -20,7 +20,7 @@ public class PlayerMethods implements PlayerInterface {
 
 	@Override
 	public void open() {
-		
+		mp3Player.stop();
 	    mp3Player.play();
 	    
 	}

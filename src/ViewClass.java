@@ -24,27 +24,6 @@ public class ViewClass {
 	JLabel lblShowMelody = new JLabel("choose file");
 	
 	/**
-	
-	btn.actionlister{
-		btn.actionperformed(){
-			open jfilechooser(){
-				build mp3PlayerFromJFileChooser;
-				
-				
-				playermethods.setMp3Player(mp3PlayerFromJFileChooser)
-				playermethods.open();
-				
-				
-			}
-		
-		
-		}
-		
-	}
-	
-	*/
-	
-	/**
 	 * Create the application.
 	 * @wbp.parser.entryPoint
 	 */
@@ -66,6 +45,11 @@ public class ViewClass {
 		frmMyMusicPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMyMusicPlayer.getContentPane().setLayout(null);
 		
+		/**
+		 * Create the PLAY button and call for open()
+		 * 
+		 */
+		
 		JButton btnPlay = new JButton("");
 		btnPlay.setForeground(Color.WHITE);
 		btnPlay.setBackground(Color.LIGHT_GRAY);
@@ -74,14 +58,17 @@ public class ViewClass {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				playerMethods.setMp3Player(mp3Player);
-				playerMethods.stop();
 				playerMethods.play();
 				System.out.println("I clicked the play button");				
 			}
 			
 		});
 		
-		
+
+		/**
+		 * Create the PAUSE button and call for pause()
+		 * 
+		 */
 		btnPlay.setBounds(130, 191, 81, 23);
 		frmMyMusicPlayer.getContentPane().add(btnPlay);
 		
@@ -90,13 +77,18 @@ public class ViewClass {
 			public void actionPerformed(ActionEvent e) {
 				
 				playerMethods.setMp3Player(mp3Player);
-				playerMethods.pause();
 				System.out.println("I clicked the button pause");
+				playerMethods.pause();
 
 			}
 			
 		});
 		
+
+		/**
+		 * Create the STOP button and call for open()
+		 * 
+		 */
 		btnPause.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\pausep.jpg"));
 		btnPause.setBounds(228, 191, 81, 23);
 		frmMyMusicPlayer.getContentPane().add(btnPause);
@@ -110,7 +102,6 @@ public class ViewClass {
 				playerMethods.stop();
 				
 				System.out.println("I clicked the button stop");
-			//	mp3Player.stop();
 			}
 			
 		});
@@ -119,11 +110,18 @@ public class ViewClass {
 		btnStop.setBounds(330, 191, 81, 23);
 		frmMyMusicPlayer.getContentPane().add(btnStop);
 		
+		
+
+		/**
+		 * Create the OPEN button and call for open()
+		 * 
+		 */
 		JButton btnOpen = new JButton("");
 		btnOpen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			System.out.println("I clicked the button open!");
+			playerMethods.stop();
 
 	           JFileChooser fileChooser = new JFileChooser();
 
@@ -135,9 +133,8 @@ public class ViewClass {
                     
 					mp3Player = new MP3Player(file);
 					playerMethods.setMp3Player(mp3Player);
-					playerMethods.stop();
+					//playerMethods.stop();
 					playerMethods.open();
-					//mp3Player.play();
 
 					System.out.println(file.getAbsolutePath());
 

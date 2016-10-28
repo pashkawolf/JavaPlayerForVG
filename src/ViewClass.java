@@ -58,11 +58,9 @@ public class ViewClass {
 				playerMethods.setMp3Player(mp3Player);
 				playerMethods.play();
 				System.out.println("I clicked the play button");				
-			}
-			
+			}	
 		});
 		
-
 		/**
 		 * Create the PAUSE button and call for pause()
 		 * 
@@ -104,8 +102,6 @@ public class ViewClass {
 		btnStop.setBounds(330, 191, 81, 23);
 		frmMyMusicPlayer.getContentPane().add(btnStop);
 		
-		
-
 		/**
 		 * Create the OPEN button and call for open()
 		 * 
@@ -122,12 +118,9 @@ public class ViewClass {
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
 
 					File file = fileChooser.getSelectedFile(); 
-                    
 					mp3Player = new MP3Player(file);
 					playerMethods.setMp3Player(mp3Player);
-					//playerMethods.stop();
 					playerMethods.open();
-
 					System.out.println(file.getAbsolutePath());
 					lblShowMelody.setText(file.getName().toString());		
 			    }

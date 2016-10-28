@@ -87,7 +87,6 @@ public class ViewClass {
 		frmMyMusicPlayer.getContentPane().add(btnPause);
 		
 		JButton btnStop = new JButton("");
-		
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 

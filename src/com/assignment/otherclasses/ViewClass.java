@@ -62,7 +62,7 @@ public class ViewClass implements ActionListener{
 //		JButton btnPlay = new JButton("");
 		btnPlay.setForeground(Color.WHITE);
 		btnPlay.setBackground(Color.LIGHT_GRAY);
-		btnPlay.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\playp.jpg"));
+		btnPlay.setIcon(new ImageIcon("C:\\Users\\pavel\\workspace\\firstmp3player-project\\ICONS\\playp.jpg"));
 		
 		/**
 		 * Create the PAUSE button and call for pause
@@ -73,11 +73,11 @@ public class ViewClass implements ActionListener{
 		/**
 		 * Create the STOP button and call for open()
 		 */
-		btnPause.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\pausep.jpg"));
+		btnPause.setIcon(new ImageIcon("C:\\Users\\pavel\\workspace\\firstmp3player-project\\ICONS\\pausep.jpg"));
 		btnPause.setBounds(228, 191, 81, 23);
 		frmMyMusicPlayer.getContentPane().add(btnPause);
 		
-		btnStop.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\stopp.jpg"));
+		btnStop.setIcon(new ImageIcon("C:\\Users\\pavel\\workspace\\firstmp3player-project\\ICONS\\stopp.jpg"));
 		btnStop.setBounds(330, 191, 81, 23);
 		frmMyMusicPlayer.getContentPane().add(btnStop);
 		
@@ -86,7 +86,7 @@ public class ViewClass implements ActionListener{
 		 */
 	
 		btnOpen.setBackground(Color.LIGHT_GRAY);
-		btnOpen.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\openp.jpg"));
+		btnOpen.setIcon(new ImageIcon("C:\\Users\\pavel\\workspace\\firstmp3player-project\\ICONS\\openp.jpg"));
 		btnOpen.setBounds(29, 191, 81, 23);
 		frmMyMusicPlayer.getContentPane().add(btnOpen);
 		

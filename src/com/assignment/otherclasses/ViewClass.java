@@ -16,14 +16,17 @@ import javax.swing.SwingConstants;
 
 /**
  * 
- * 
- * 
  * @author Pavel
  * @version 1.0
  */
-public class ViewClass {
+public class ViewClass implements ActionListener{
 
 	private JFrame frmMyMusicPlayer;
+
+	JButton btnOpen = new JButton("");
+	JButton btnPlay = new JButton("");
+	JButton btnPause = new JButton("");
+	JButton btnStop = new JButton("");
 
 	private MP3Player mp3Player = new MP3Player();
 	private PlayerMethods playerMethods = new PlayerMethods();
@@ -33,7 +36,8 @@ public class ViewClass {
 	 * Create the application.
 	 */
 	public ViewClass() {
-		initialize();	
+		initialize();
+		addActionListener();
 	}
 
 	/**
@@ -55,35 +59,16 @@ public class ViewClass {
 		/**
 		 * Create the PLAY button and call for open()
 		 */		
-		JButton btnPlay = new JButton("");
+//		JButton btnPlay = new JButton("");
 		btnPlay.setForeground(Color.WHITE);
 		btnPlay.setBackground(Color.LIGHT_GRAY);
 		btnPlay.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\playp.jpg"));
-		btnPlay.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				playerMethods.setMp3Player(mp3Player);
-				playerMethods.play();
-				System.out.println("I clicked the play button");				
-			}	
-		});
 		
 		/**
 		 * Create the PAUSE button and call for pause
 		 */
 		btnPlay.setBounds(130, 191, 81, 23);
 		frmMyMusicPlayer.getContentPane().add(btnPlay);
-		
-		JButton btnPause = new JButton("");
-		btnPause.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {    //Performs action on click,-pauses playing
-
-				
-				playerMethods.setMp3Player(mp3Player);
-				System.out.println("I clicked the button pause");
-				playerMethods.pause();
-			}	
-		});
 		
 		/**
 		 * Create the STOP button and call for open()
@@ -92,16 +77,6 @@ public class ViewClass {
 		btnPause.setBounds(228, 191, 81, 23);
 		frmMyMusicPlayer.getContentPane().add(btnPause);
 		
-		JButton btnStop = new JButton("");
-		btnStop.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {   //Performs action on click,-stops playing
-
-				playerMethods.setMp3Player(mp3Player);
-				playerMethods.stop();
-				System.out.println("I clicked the button stop");
-			}	
-		});
-		
 		btnStop.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\stopp.jpg"));
 		btnStop.setBounds(330, 191, 81, 23);
 		frmMyMusicPlayer.getContentPane().add(btnStop);
@@ -109,11 +84,29 @@ public class ViewClass {
 		/**
 		 * Create the OPEN button and call for open
 		 */
-		JButton btnOpen = new JButton("");
+	
+		btnOpen.setBackground(Color.LIGHT_GRAY);
+		btnOpen.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\openp.jpg"));
+		btnOpen.setBounds(29, 191, 81, 23);
+		frmMyMusicPlayer.getContentPane().add(btnOpen);
 		
-		btnOpen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+		lblShowMelody.setHorizontalAlignment(SwingConstants.CENTER);
+		lblShowMelody.setForeground(new Color(255, 0, 0));
+		lblShowMelody.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblShowMelody.setBackground(Color.LIGHT_GRAY);
+		lblShowMelody.setBounds(29, 31, 382, 28);
+		frmMyMusicPlayer.getContentPane().add(lblShowMelody);
+		
+		frmMyMusicPlayer.setVisible(true);	// Makes frame visible
+	}
+	public void addActionListener(){
+		btnOpen.addActionListener(this);
+		btnPlay.addActionListener(this);
+		btnPause.addActionListener(this);
+		btnStop.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == btnOpen) {
 			System.out.println("I clicked the button open!");
 			playerMethods.stop();
 			
@@ -129,21 +122,25 @@ public class ViewClass {
 					lblShowMelody.setText(file.getName().toString());		//Shows name of the playing song in a textfield.
 			    }
 			}
-		});
+			if (e.getSource() == btnStop) {
+				playerMethods.setMp3Player(mp3Player);
+				playerMethods.stop();
+				System.out.println("I clicked the button stop");
+			}
+			
+			if(e.getSource()==btnPause){
+				playerMethods.setMp3Player(mp3Player);
+				System.out.println("I clicked the button pause");
+				playerMethods.pause();
+			}
+			
+			if (e.getSource()==btnPlay){
+				playerMethods.setMp3Player(mp3Player);
+				playerMethods.play();
+				System.out.println("I clicked the play button");
+				
+			}
 		
-		btnOpen.setBackground(Color.LIGHT_GRAY);
-		btnOpen.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\openp.jpg"));
-		btnOpen.setBounds(29, 191, 81, 23);
-		frmMyMusicPlayer.getContentPane().add(btnOpen);
-		
-		lblShowMelody.setHorizontalAlignment(SwingConstants.CENTER);
-		lblShowMelody.setForeground(new Color(255, 0, 0));
-		lblShowMelody.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblShowMelody.setBackground(Color.LIGHT_GRAY);
-		lblShowMelody.setBounds(29, 31, 382, 28);
-		frmMyMusicPlayer.getContentPane().add(lblShowMelody);
-		
-		frmMyMusicPlayer.setVisible(true);	// Makes frame visible
-	}
+		}
 }
 

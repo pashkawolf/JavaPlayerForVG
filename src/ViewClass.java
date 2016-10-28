@@ -28,8 +28,7 @@ public class ViewClass {
 	 * @wbp.parser.entryPoint
 	 */
 	public ViewClass() {
-		initialize();
-		
+		initialize();	
 	}
 
 	/**
@@ -48,8 +47,7 @@ public class ViewClass {
 		/**
 		 * Create the PLAY button and call for open()
 		 * 
-		 */
-		
+		 */		
 		JButton btnPlay = new JButton("");
 		btnPlay.setForeground(Color.WHITE);
 		btnPlay.setBackground(Color.LIGHT_GRAY);
@@ -79,12 +77,9 @@ public class ViewClass {
 				playerMethods.setMp3Player(mp3Player);
 				System.out.println("I clicked the button pause");
 				playerMethods.pause();
-
-			}
-			
+			}	
 		});
 		
-
 		/**
 		 * Create the STOP button and call for open()
 		 * 
@@ -102,8 +97,7 @@ public class ViewClass {
 				playerMethods.stop();
 				
 				System.out.println("I clicked the button stop");
-			}
-			
+			}	
 		});
 		
 		btnStop.setIcon(new ImageIcon("C:\\Users\\pavel\\Downloads\\icons\\stopp.jpg"));
@@ -124,9 +118,7 @@ public class ViewClass {
 			playerMethods.stop();
 
 	           JFileChooser fileChooser = new JFileChooser();
-
 				int returnVal = fileChooser.showOpenDialog(btnOpen);
-
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
 
 					File file = fileChooser.getSelectedFile(); 
@@ -137,10 +129,8 @@ public class ViewClass {
 					playerMethods.open();
 
 					System.out.println(file.getAbsolutePath());
-
 					lblShowMelody.setText(file.getName().toString());		
-				
-			}
+			    }
 			}
 		});
 		
@@ -156,8 +146,6 @@ public class ViewClass {
 		lblShowMelody.setBounds(29, 31, 382, 28);
 		frmMyMusicPlayer.getContentPane().add(lblShowMelody);
 		
-		frmMyMusicPlayer.setVisible(true);
-		
-		
+		frmMyMusicPlayer.setVisible(true);	
 	}
 }
